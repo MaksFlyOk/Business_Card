@@ -529,6 +529,88 @@ main section {
     width: 100px;
   }
 }
+@media only screen and (max-width: 495px) {
+  main {
+    max-width: 420px;
+    top: calc(45% - 300px);
+  }
+  main section {
+    height: 200px;
+  }
+  .avatar {
+    margin-top: -10px;
+    margin-left: 150px;
+    width: 120px;
+    height: 120px;
+  }
+  .avatar img {
+    width: auto;
+    height: 200%;
+    margin: 80px 0 0 0;
+  }
+  .myName h1 {
+    padding-top: 70px;
+    font-size: 24px;
+  }
+  .about {
+    position: absolute;
+    width: 160px;
+    height: 47px;
+    right: 130px;
+    top: 730px;
+    background: white;
+  }
+  .about h2 {
+    font-size: 22px;
+    color: rgb(10, 10, 10);
+  }
+  .mail {
+    width: 200px;
+    height: 53px;
+    margin-top: 22px;
+  }
+  .mail img[alt=Mail] {
+    width: 32px;
+    height: 32px;
+  }
+  .mail a {
+    font-size: 26px;
+  }
+  .mail img[alt=Mail], .mail a {
+    vertical-align: middle;
+    display: inline-block;
+    margin-top: 11px;
+  }
+  .popup {
+    top: 44%;
+    left: 50%;
+    width: 400px;
+    height: 260px;
+    font-size: 16px;
+  }
+  .links {
+    display: inline-block;
+    margin-top: 30px;
+  }
+  .links div {
+    width: 200px;
+    height: 200px;
+    float: left;
+  }
+  .inst {
+    margin-right: 0px;
+  }
+  .vk {
+    margin-right: 20px;
+  }
+  .tg {
+    width: 420px !important;
+    margin-top: 20px;
+  }
+  .links img {
+    width: 100px;
+  }
+}
 @media only screen and (max-width: 376px) {
   main {
     max-width: 300px;
