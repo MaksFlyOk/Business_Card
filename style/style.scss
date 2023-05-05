@@ -1,0 +1,728 @@
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  transition: 0.1s ease-in-out;
+}
+
+// Int
+$font: 'Montserrat', sans-serif;
+$mainWidth: 1000px;
+$sectionHeight: 300px;
+
+body{
+    background-color: rgb(10, 10, 10);
+}
+main{
+    max-width: $mainWidth;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: calc(52% - $sectionHeight);
+}
+main section{
+    margin-top: 50px;
+    max-width: $mainWidth;
+    height: $sectionHeight;
+    background-color: rgb(66, 66, 66);
+    border-radius: 20px;
+}
+
+//First section 
+.avatar {
+    position: absolute;
+    margin-top: -70px;
+    margin-left: ($mainWidth/2)-(220px/2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 220px;
+    height: 220px;
+    overflow: hidden;
+    transform: scale(1);
+    transition: all 0.2s;
+}
+.avatar:hover{
+    transform: scale(1.05);
+    transition: all 0.3s;
+}
+.avatar img{
+    width: auto;
+    height: 200%;
+    margin: 120px 20px 0 0;
+}
+
+.myName h1{
+    color: white;
+    text-align: center;
+    padding-top: 120px;
+    font-family: $font;
+    font-weight: 700;
+    font-size: 2em;
+}
+
+.about{
+    position: absolute;
+    width: 150px;
+    height: 50px;
+    background-color: rgb(10, 10, 10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    right: 20px;
+    top: 70px;
+    transition: all 0.2s;
+
+    h2{
+        color: white;
+        font-family: $font;
+        transition: all 0.2s;
+    }
+}
+.about:hover{
+    transition: all 0.2s;
+    background-color: rgb(255, 255, 255);
+
+    h2{
+        color: rgb(10, 10, 10);
+    }
+}
+
+.mail{
+    position: relative;
+    overflow: hidden;
+    font-family: $font;
+    font-size: 30px;
+    width: 200px;
+    height: 60px;
+    background-color: rgb(31, 96, 227);
+    display:block;
+    margin: 0 auto;
+    margin-top: ($sectionHeight/2)-115px;
+    border-radius: 10px;
+}
+.mail::after{
+  content: "";
+  height: 100%;
+  left: -230%;
+  opacity: 0;
+  position: absolute;
+  top: -20%;
+  transform: rotate(-30deg);
+  width: 200%;
+  background: rgba(255, 255, 255, 0.13);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.13) 0%, rgba(255, 255, 255, 0.13) 77%, rgba(255, 255, 255, 0.5) 92%, rgba(255, 255, 255, 0.0) 100%);
+  transition-duration: 0.5s, 0.7s, 0.15s;
+}
+.mail:hover:after {
+    left: 50%;
+    opacity: 1;
+    top: 50%;
+    transition-duration: 0.7s, 0.7s, 0.15s;
+    transition-property: left, top, opacity;
+    transition-timing-function: ease;
+}
+.mail img[alt="Mail"]{
+    width: 32px;
+    height: 32px;
+    filter: invert(100%) brightness(100%);
+}
+.mail a{
+    text-decoration: none;
+    color: white;
+    font-family: $font;
+    font-weight: 500;
+    margin-left: 10px;
+}
+.mail img[alt="Mail"], .mail a{
+  vertical-align:middle;
+  display:inline-block;
+  margin-top: 12px;
+}
+.mailin{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+//PopUp
+.popup__bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    pointer-events: none; 
+}
+.popup__bg.active { 
+    pointer-events: all;
+    z-index: 1;
+}
+.popup {
+    position: absolute;
+    top: 45%;
+    left: 75%;
+    transform: translate(-50%, -50%) scale(0);
+    background: rgb(7, 7, 7);
+    border-radius: 10px;
+    width: 480px;
+    height: 220px;
+    padding: 20px;
+    transition: 0.3s all;
+    font-family: $font;
+    color: white;
+    overflow:hidden;
+    z-index: 100;
+}
+.popup.active { 
+    transform: translate(-50%, -50%) scale(1); 
+    transition: 0.5s all;
+    z-index: 100;
+}
+
+//Second section 
+.links  {
+    background-color: rgb(10, 10, 10);
+    display: inline-flex;
+}
+.links div{
+    width: 300px;
+    height: 300px;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    overflow: auto;
+}
+.vk, .inst{
+    margin-right: (100px/2);
+}
+.vk{
+    background: linear-gradient(170deg,#6ECFFF 0%,#0791fa 50%,#5c16ff 100%); 
+    transition: all 0.5s;
+}
+.inst{
+    background: linear-gradient(170deg,#833AB4 0%,#F56040 50%, #FCAF45 100%); 
+    transition: all 0.5s;
+}
+.tg{
+    background: linear-gradient(170deg,#2AABEE 0%,#229ED9 50%, #2244d9 100%); 
+    transition: all 0.5s;
+}
+.links div:hover{
+    filter: hue-rotate(-50deg);
+    filter: saturate(2);  
+}
+.links img{
+    width: 220px;
+    opacity: 50%;
+}
+
+//Adaptive
+    //Desktop
+@media only screen and (max-width: 2560px){
+    .popup {
+        left: 70%;
+        top: 48%;
+    }
+}
+
+@media only screen and (max-width: 1920px){
+    .popup {
+        left:75%;
+        top: 47%;
+    }
+}
+
+@media only screen and (max-width: 1620px){
+    .popup {
+        left: 78%;
+        top: 47%;
+    }
+    main section{
+        height: 260px;
+    }
+    .myName h1{
+        padding-top: 110px;
+    }
+    .mail{
+        width: 200px;
+        height: 60px;
+        margin-top: (240px/2)-95px;
+    }
+}
+
+@media only screen and (max-width: 1440px){
+    main{
+        max-width: 700px;
+    }
+    main section{
+        height: 220px;
+    }
+    .avatar {
+        margin-top: -40px;
+        margin-left: (700px/2)-(180px/2);
+        width: 180px;
+        height: 180px;
+    }
+    .myName h1{
+        padding-top: 100px;
+        font-size: 26px;
+    }
+    .mail{
+        width: 160px;
+        height: 40px;
+        margin-top: (160px/2)-60px;
+    }
+    .mail img[alt="Mail"]{
+        width: 26px;
+        height: 26px;
+    }
+    .mail a{
+        font-size:22px;
+    }
+    .mail img[alt="Mail"], .mail a{
+      vertical-align:middle;
+      display:inline-block;
+      margin-top: 7px;
+    }
+    .popup {
+        top: 48%;
+        left: 77%;
+        width: 320px;
+        height: 250px;
+        padding: 20px;
+        font-size: 14px;
+    }
+    .links div{
+        width: 220px;
+        height: 220px;
+        background-color: white;
+        border-radius: 20px;
+    }
+    .vk, .inst{
+        margin-right: (40px/2);
+    }
+    .links img{
+        width: 160px;
+    }
+}
+    //Tablet
+@media only screen and (max-width: 1024px){
+    main{
+        max-width: 900px;
+        top: calc(42% - $sectionHeight);
+    }
+    main section{
+        height: 400px;
+    }
+    .avatar {
+        margin-top: -60px;
+        margin-left: (900px/2)-(220px/2);
+        width: 220px;
+        height: 220px;
+    }
+    .myName h1{
+        padding-top: 140px;
+        font-size: 40px;
+    }
+    .about{
+        width: 200px;
+        height: 67px;
+        right: 20px;
+        top: 70px;
+        h2{
+           font-size: 30px; 
+        }
+    }
+    .mail{
+        width: 300px;
+        height: 80px;
+        margin-top: (300px/2)-90px;
+    }
+    .mail img[alt="Mail"]{
+        width: 50px;
+        height: 50px;
+    }
+    .mail a{
+        font-size:34px;
+    }
+    .mail img[alt="Mail"], .mail a{
+      vertical-align:middle;
+      display:inline-block;
+      margin-top: 15px;
+    }
+    .popup {
+        top: 46%;
+        left: 50%;
+        width: 800px;
+        height: 360px;
+        font-size: 28px;
+    }
+    .links div{
+        width: 270px;
+        height: 270px;
+    }
+    .vk, .inst{
+        margin-right: (90px/2);
+    }
+    .links img{
+        width: 200px;
+    }
+    .links div{
+        animation: background 3s infinite alternate;  
+        @keyframes background {
+            100% {
+                filter: hue-rotate(-50deg);
+                filter: saturate(2);
+            }
+          }  
+    }
+}
+@media only screen and (max-width: 768px){
+    main{
+        max-width: 680px;
+        top: calc(50% - $sectionHeight);
+    }
+    main section{
+        height: 220px;
+    }
+    .avatar {
+        margin-top: -60px;
+        margin-left: (680px/2)-(200px/2);
+        width: 200px;
+        height: 200px;
+    }
+    .myName h1{
+        padding-top: 100px;
+        font-size: 28px;
+    }
+    .about{
+        width: 140px;
+        height: 47px;
+        right: 20px;
+        top: 70px;
+        h2{
+           font-size: 22px; 
+        }
+    }
+    .mail{
+        width: 180px;
+        height: 48px;
+        margin-top: (220px/2)-94px;
+    }
+    .mail img[alt="Mail"]{
+        width: 32px;
+        height: 32px;
+    }
+    .mail a{
+        font-size:26px;
+    }
+    .mail img[alt="Mail"], .mail a{
+      vertical-align:middle;
+      display:inline-block;
+      margin-top: 8px;
+    }
+    .popup {
+        top: 52%;
+        left: 50%;
+        width: 600px;
+        height: 340px;
+        font-size: 22px;
+    }
+    .links div{
+        width: 200px;
+        height: 200px;
+    }
+    .vk, .inst{
+        margin-right: (80px/2);
+    }
+    .links img{
+        width: 160px;
+    }
+}
+@media only screen and (max-width: 600px){
+    main{
+        max-width: 500px;
+        top: calc(42% - $sectionHeight);
+    }
+    main section{
+        height: 220px;
+    }
+    .avatar {
+        margin-top: -50px;
+        margin-left: (500px/2)-(160px/2);
+        width: 160px;
+        height: 160px;
+    }
+    .myName h1{
+        padding-top: 78px;
+        font-size: 28px;
+    }
+    .about{
+        position: absolute;
+        width: 140px;
+        height: 47px;
+        right: -20px;
+        top: -96px;
+        background: white;
+        h2{
+           font-size: 22px; 
+           color: rgb(10, 10, 10);
+        }
+    }
+    .mail{
+        width: 200px;
+        height: 53px;
+        margin-top: (220px/2)-84px;
+    }
+    .mail img[alt="Mail"]{
+        width: 32px;
+        height: 32px;
+    }
+    .mail a{
+        font-size:26px;
+    }
+    .mail img[alt="Mail"], .mail a{
+      vertical-align:middle;
+      display:inline-block;
+      margin-top: 8px;
+    }
+    .popup {
+        top: 42%;
+        left: 50%;
+        width: 560px;
+        height: 340px;
+        font-size: 22px;
+    }
+    .links{
+        display: inline-block;
+    }
+    .links div{
+        width: 230px;
+        height: 230px;
+        float: left;
+    }
+    .inst{
+        margin-right: 0px;
+    }
+    .vk{
+        margin-right: (80px/2);
+    }
+    .tg{
+       width: 500px !important;
+       margin-top: (80px/2);
+    }
+    .links img{
+        width: 100px;
+    }
+}
+    //Mobile
+@media only screen and (max-width: 376px){
+    main{
+        max-width: 300px;
+        top: calc(45% - $sectionHeight);
+    }
+    main section{
+        height: 200px;
+    }
+    .avatar {
+        margin-top: -10px;
+        margin-left: (300px/2)-(120px/2);
+        width: 120px;
+        height: 120px;
+    }
+    .avatar img{
+        width: auto;
+        height: 200%;
+        margin: 80px 0 0 0;
+    }
+    .myName h1{
+        padding-top: 70px;
+        font-size: 24px;
+    }
+    .about{
+        position: absolute;
+        width: 140px;
+        height: 47px;
+        right: 80px;
+        top: 620px;
+        background: white;
+        h2{
+           font-size: 22px; 
+           color: rgb(10, 10, 10);
+        }
+    }
+    .mail{
+        width: 200px;
+        height: 53px;
+        margin-top: (220px/2)-88px;
+    }
+    .mail img[alt="Mail"]{
+        width: 32px;
+        height: 32px;
+    }
+    .mail a{
+        font-size:26px;
+    }
+    .mail img[alt="Mail"], .mail a{
+      vertical-align:middle;
+      display:inline-block;
+      margin-top: 11px;
+    }
+    .popup {
+        top: 44%;
+        left: 50%;
+        width: 302px;
+        height: 360px;
+        font-size: 16px;
+    }
+    .links{
+        display: inline-block;
+        margin-top: 30px;
+    }
+    .links div{
+        width: 140px;
+        height: 140px;
+        float: left;
+    }
+    .inst{
+        margin-right: 0px;
+    }
+    .vk{
+        margin-right: (40px/2);
+    }
+    .tg{
+       width: 300px !important;
+       margin-top: (40px/2);
+    }
+    .links img{
+        width: 100px;
+    }
+}
+@media only screen and (max-width: 360px){
+    main{
+        max-width: 300px;
+        top: calc(52% - $sectionHeight);
+    }
+    main section{
+        height: 200px;
+    }
+    .avatar {
+        margin-top: -10px;
+        margin-left: (300px/2)-(120px/2);
+        width: 120px;
+        height: 120px;
+    }
+    .avatar img{
+        width: auto;
+        height: 200%;
+        margin: 80px 0 0 0;
+    }
+    .myName h1{
+        padding-top: 70px;
+        font-size: 24px;
+    }
+    .about{
+        position: absolute;
+        width: 70px;
+        height: 25px;
+        right: 10px;
+        top: 61px;
+        background: white;
+        h2{
+           font-size: 12px; 
+           color: rgb(10, 10, 10);
+        }
+    }
+    .mail{
+        width: 200px;
+        height: 53px;
+        margin-top: (220px/2)-88px;
+    }
+    .mail img[alt="Mail"]{
+        width: 32px;
+        height: 32px;
+    }
+    .mail a{
+        font-size:26px;
+    }
+    .mail img[alt="Mail"], .mail a{
+      vertical-align:middle;
+      display:inline-block;
+      margin-top: 11px;
+    }
+    .popup {
+        top: 46%;
+        left: 50%;
+        width: 302px;
+        height: 296px;
+        font-size: 15px;
+    }
+    .links{
+        margin-top: 30px;
+        display: inline-block;
+    }
+    .links div{
+        width: 135px;
+        height: 135px;
+        float: left;
+    }
+    .inst{
+        margin-right: 0px;
+    }
+    .vk{
+        margin-right: (60px/2);
+    }
+    .tg{
+       width: 300px !important;
+       margin-top: (60px/2);
+    }
+    .links img{
+        width: 100px;
+    }
+}
+@media only screen and (max-width: 320px){
+    body{
+        overflow-x: hidden;
+    }
+    main{
+        max-width: 300px;
+        top: calc(58% - $sectionHeight);
+    }
+    main section{
+        height: 200px;
+    }
+    .popup {
+        top: 52%;
+        left: 50%;
+        width: 302px;
+        height: 296px;
+        font-size: 15px;
+    }
+    .links{
+        margin-top: 30px;
+        display: inline-block;
+    }
+    .links div{
+        width: 300px;
+        height: 135px;
+        float: left;
+    }
+    .inst{
+        margin-top: (60px/2);
+    }
+    .tg{
+       margin-top: (60px/2);
+       margin-bottom: (60px/2);
+    }
+    .links img{
+        width: 100px;
+    }
+}
