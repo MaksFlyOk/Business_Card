@@ -1,5 +1,5 @@
 # Business_Card
 
-# This is my first completed project.
+## This is my first completed project.
 
-## I used SCSS preprocesor.
+### I used SCSS preprocesor.
